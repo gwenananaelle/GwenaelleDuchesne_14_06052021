@@ -1,7 +1,7 @@
 import React from "react"
 import { Link } from "gatsby"
 
-export default function Home() {
+export default function EmployeeList() {
   return (
     <div>
       <header>
@@ -10,11 +10,11 @@ export default function Home() {
       <nav>
         <ul>
           <li>
-            <Link to="EmployeeList">Current Employees</Link>
+            <Link to="/">Create Employees</Link>
           </li>
         </ul>
       </nav>
-      <main>{/* <CreateEmployeeForm /> */}</main>
+      <main></main>
     </div>
   )
 }
