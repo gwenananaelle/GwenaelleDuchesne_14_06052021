@@ -1,5 +1,6 @@
 import React from "react"
 import { Link } from "gatsby"
+import EmployeeTable from "../components/EmployeeTable"
 
 export default function EmployeeList() {
   return (
@@ -14,7 +15,9 @@ export default function EmployeeList() {
           </li>
         </ul>
       </nav>
-      <main></main>
+      <main>
+        <EmployeeTable />
+      </main>
     </div>
   )
 }

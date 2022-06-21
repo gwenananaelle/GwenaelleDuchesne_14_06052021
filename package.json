@@ -17,9 +17,11 @@
     "@emotion/react": "latest",
     "@emotion/styled": "latest",
     "@material-ui/core": "latest",
+    "@mui/icons-material": "latest",
     "@mui/material": "latest",
     "gatsby": "latest",
     "gatsby-plugin-material-ui": "latest",
+    "mui-datatables": "^4.2.2",
     "react": "latest",
     "react-dom": "latest"
   },
