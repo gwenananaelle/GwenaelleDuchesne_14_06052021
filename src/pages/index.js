@@ -1,5 +1,6 @@
 import React from "react"
 import { Link } from "gatsby"
+import CreateEmployeeForm from "../components/CreateEmployeeForm"
 
 export default function Home() {
   return (
@@ -14,7 +15,9 @@ export default function Home() {
           </li>
         </ul>
       </nav>
-      <main>{/* <CreateEmployeeForm /> */}</main>
+      <main>
+        <CreateEmployeeForm />
+      </main>
     </div>
   )
 }

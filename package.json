@@ -14,9 +14,14 @@
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
   },
   "dependencies": {
-    "gatsby": "^4.16.0",
-    "react": "^18.1.0",
-    "react-dom": "^18.1.0"
+    "@emotion/react": "latest",
+    "@emotion/styled": "latest",
+    "@material-ui/core": "latest",
+    "@mui/material": "latest",
+    "gatsby": "latest",
+    "gatsby-plugin-material-ui": "latest",
+    "react": "latest",
+    "react-dom": "latest"
   },
   "devDependencies": {
     "prettier": "^2.6.2"
