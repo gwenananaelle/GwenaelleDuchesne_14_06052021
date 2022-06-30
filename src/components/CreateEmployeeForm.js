@@ -8,7 +8,7 @@ import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs"
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider"
 import { DesktopDatePicker } from "@mui/x-date-pickers/DesktopDatePicker"
 import { HybridSelect } from "react-select-hybrid"
-import Button from "@mui/material/Button"
+import { Input } from "@mui/material"
 
 export default function CreateEmployeeForm() {
   const [open, setOpen] = React.useState(false)
@@ -33,25 +33,30 @@ export default function CreateEmployeeForm() {
     const value = target.type === "checkbox" ? target.checked : target.value
     const name = target.name
 
-    this.setState({
+    setEmployee({
       [name]: value,
     })
+  }
+  function handleSubmit(event) {
+    handleOpen()
+    console.log(employee)
+    event.preventDefault()
   }
 
   return (
     <>
       <LocalizationProvider dateAdapter={AdapterDayjs}>
         <h2>Create Employee</h2>
-        <form action="#" id="create-employee">
+        <form id="create-employee" onSubmit={e => handleSubmit(e)}>
           <label htmlFor="first-name">First Name</label>
-          <input
+          <Input
             type="text"
             id="first-name"
             name="firstName"
             onChange={e => handleInputChange(e)}
           />
           <label htmlFor="last-name">Last Name</label>
-          <input
+          <Input
             type="text"
             id="last-name"
             name="lastName"
@@ -77,7 +82,7 @@ export default function CreateEmployeeForm() {
             <legend>Address</legend>
 
             <label htmlFor="street">Street</label>
-            <input
+            <Input
               id="street"
               type="text"
               name="street"
@@ -85,7 +90,7 @@ export default function CreateEmployeeForm() {
             />
 
             <label htmlFor="city">City</label>
-            <input
+            <Input
               id="city"
               type="text"
               name="city"
@@ -93,7 +98,7 @@ export default function CreateEmployeeForm() {
             />
 
             <label htmlFor="zip-code">Zip Code</label>
-            <input
+            <Input
               id="zip-code"
               type="number"
               name="zipCode"
@@ -112,12 +117,12 @@ export default function CreateEmployeeForm() {
             name="department"
             onChange={e => handleInputChange(e)}
           />
-          <Button onClick={handleOpen}>Save</Button>
           <MyModal
             open={open}
             handleOpen={handleOpen}
             handleClose={handleClose}
           />
+          <Input type="submit" value="Save" />
         </form>
       </LocalizationProvider>
     </>

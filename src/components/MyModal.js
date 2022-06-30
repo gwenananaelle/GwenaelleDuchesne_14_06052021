@@ -1,6 +1,5 @@
 import * as React from "react"
 import Box from "@mui/material/Box"
-import Button from "@mui/material/Button"
 import Typography from "@mui/material/Typography"
 import Modal from "@mui/material/Modal"
 
@@ -19,7 +18,6 @@ const style = {
 export default function MyModal({ open, handleClose, handleOpen }) {
   return (
     <div>
-      <Button onClick={handleOpen}>Save</Button>
       <Modal
         open={open}
         onClose={handleClose}
