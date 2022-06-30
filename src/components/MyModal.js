@@ -16,11 +16,7 @@ const style = {
   p: 4,
 }
 
-export default function MyModal() {
-  const [open, setOpen] = React.useState(false)
-  const handleOpen = () => setOpen(true)
-  const handleClose = () => setOpen(false)
-
+export default function MyModal({ open, handleClose, handleOpen }) {
   return (
     <div>
       <Button onClick={handleOpen}>Save</Button>
