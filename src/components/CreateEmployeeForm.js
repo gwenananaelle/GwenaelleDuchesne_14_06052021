@@ -9,6 +9,8 @@ import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider"
 import { DesktopDatePicker } from "@mui/x-date-pickers/DesktopDatePicker"
 import { HybridSelect } from "react-select-hybrid"
 import { Input } from "@mui/material"
+import { InputLabel } from "@mui/material"
+
 import { Stack } from "@mui/material"
 
 import { useDispatch } from "react-redux"
@@ -73,14 +75,14 @@ export default function CreateEmployeeForm() {
         <h2>Create Employee</h2>
         <form id="create-employee" onSubmit={e => handleSubmit(e)}>
           <Stack spacing={2}>
-            <label htmlFor="first-name">First Name</label>
+            <InputLabel htmlFor="first-name">First Name</InputLabel>
             <Input
               type="text"
               id="first-name"
               name="firstName"
               onChange={e => handleInputChange(e)}
             />
-            <label htmlFor="last-name">Last Name</label>
+            <InputLabel htmlFor="last-name">Last Name</InputLabel>
             <Input
               type="text"
               id="last-name"
@@ -106,7 +108,7 @@ export default function CreateEmployeeForm() {
             <fieldset className="address">
               <legend>Address</legend>
 
-              <label htmlFor="street">Street</label>
+              <InputLabel htmlFor="street">Street</InputLabel>
               <Input
                 id="street"
                 type="text"
@@ -114,7 +116,7 @@ export default function CreateEmployeeForm() {
                 onChange={e => handleInputChange(e)}
               />
 
-              <label htmlFor="city">City</label>
+              <InputLabel htmlFor="city">City</InputLabel>
               <Input
                 id="city"
                 type="text"
@@ -122,7 +124,7 @@ export default function CreateEmployeeForm() {
                 onChange={e => handleInputChange(e)}
               />
 
-              <label htmlFor="zip-code">Zip Code</label>
+              <InputLabel htmlFor="zip-code">Zip Code</InputLabel>
               <Input
                 id="zip-code"
                 type="number"

@@ -3,25 +3,16 @@ import { Link } from "gatsby"
 import EmployeeTable from "../components/EmployeeTable"
 import store from "../app/store"
 import { Provider } from "react-redux"
+import Layout from "../components/layout"
 
 export default function EmployeeList() {
   return (
     <Provider store={store}>
-      <div>
-        <header>
-          <h1>HRnet</h1>
-        </header>
-        <nav>
-          <ul>
-            <li>
-              <Link to="/">Create Employees</Link>
-            </li>
-          </ul>
-        </nav>
+      <Layout>
         <main>
           <EmployeeTable />
         </main>
-      </div>
+      </Layout>
     </Provider>
   )
 }
