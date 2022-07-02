@@ -11,7 +11,12 @@ import { HybridSelect } from "react-select-hybrid"
 import { Input } from "@mui/material"
 import { Stack } from "@mui/material"
 
+import { useDispatch } from "react-redux"
+import { addEmployee } from "../feature/employee/employeeSlice"
+import dayjs from "dayjs"
+
 export default function CreateEmployeeForm() {
+  const dispatch = useDispatch()
   const [open, setOpen] = React.useState(false)
   const handleOpen = () => setOpen(true)
   const handleClose = () => setOpen(false)
@@ -19,28 +24,46 @@ export default function CreateEmployeeForm() {
   const [employee, setEmployee] = useState({
     firstName: "",
     lastName: "",
-    dateOfBirth: null,
     startDate: null,
-    address: {
-      street: "",
-      city: "",
-      zipcode: "",
-    },
     department: "",
+    dateOfBirth: null,
+    street: "",
+    city: "",
     state: "",
+    zipcode: "",
   })
+
   function handleInputChange(event) {
+    console.log(event)
     const target = event.target
     const value = target.type === "checkbox" ? target.checked : target.value
     const name = target.name
 
     setEmployee({
+      ...employee,
       [name]: value,
+    })
+  }
+  function handleDateOfBirthChange(newValue) {
+    const dateOfBirth = "dateOfBirth"
+    const timestamp = dayjs(newValue).unix()
+    setEmployee({
+      ...employee,
+      [dateOfBirth]: timestamp,
+    })
+  }
+  function handleStartDateChange(newValue) {
+    const startDate = "startDate"
+    const timestamp = dayjs(newValue).unix()
+    setEmployee({
+      ...employee,
+      [startDate]: timestamp,
     })
   }
   function handleSubmit(event) {
     handleOpen()
     console.log(employee)
+    dispatch(addEmployee(employee))
     event.preventDefault()
   }
 
@@ -67,9 +90,9 @@ export default function CreateEmployeeForm() {
             <DesktopDatePicker
               label="Date of Birth"
               inputFormat="YYYY-MM-DD"
-              value={new Date("2014-08-18T21:11:54")}
+              value={employee.dateOfBirth}
               name="dateOfBirth"
-              onChange={e => handleInputChange(e)}
+              onChange={handleDateOfBirthChange}
               renderInput={params => <TextField {...params} />}
             />
             <DesktopDatePicker
@@ -77,7 +100,7 @@ export default function CreateEmployeeForm() {
               inputFormat="YYYY-MM-DD"
               value={new Date("2014-08-18T21:11:54")}
               name="startDate"
-              onChange={e => handleInputChange(e)}
+              onChange={handleStartDateChange}
               renderInput={params => <TextField {...params} />}
             />
             <fieldset className="address">

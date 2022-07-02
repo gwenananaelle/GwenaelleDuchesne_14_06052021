@@ -21,12 +21,14 @@
     "@mui/icons-material": "latest",
     "@mui/material": "latest",
     "@mui/x-date-pickers": "^5.0.0-alpha.6",
+    "@reduxjs/toolkit": "^1.8.3",
     "dayjs": "^1.11.3",
     "gatsby": "latest",
     "gatsby-plugin-material-ui": "latest",
     "mui-datatables": "^4.2.2",
     "react": "latest",
     "react-dom": "latest",
+    "react-redux": "^8.0.2",
     "react-select-hybrid": "^0.1.1"
   },
   "devDependencies": {

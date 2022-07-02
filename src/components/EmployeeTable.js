@@ -1,5 +1,7 @@
 import React from "react"
 import MUIDataTable from "mui-datatables"
+import { useSelector } from "react-redux"
+import dayjs from "dayjs"
 
 const columns = [
   "First Name",
@@ -13,31 +15,6 @@ const columns = [
   "ZipCode",
 ]
 
-const employees = [
-  [
-    "Fran",
-    "Lebowitz",
-    "01/01/1978",
-    "Sales",
-    "27/10/1950",
-    "Cooper St",
-    "Morristown",
-    "New Jersey",
-    "07960",
-  ],
-  [
-    "Lee",
-    "Harper",
-    "01/01/1960",
-    "Marketing",
-    "28/04/1926",
-    "Cooper St",
-    "Monroeville",
-    "Alabama",
-    "36460",
-  ],
-]
-
 const options = {
   search: "true",
   rowsPerPageOptions: [10, 25, 50, 100],
@@ -48,10 +25,25 @@ const options = {
 }
 
 export default function EmployeeTable() {
+  const employees = useSelector(state => state.employee.value)
+  const employeeList = employees.map(employee => {
+    const newEmployee = [
+      employee.firstName,
+      employee.lastName,
+      dayjs(employee.startDate).format("DD/MM/YYYY"),
+      employee.department,
+      dayjs(employee.dateOfBirth).format("DD/MM/YYYY"),
+      employee.street,
+      employee.city,
+      employee.state,
+      employee.zipcode,
+    ]
+    return newEmployee
+  })
   return (
     <MUIDataTable
       title={"Current Employees"}
-      data={employees}
+      data={employeeList}
       columns={columns}
       options={options}
     />
